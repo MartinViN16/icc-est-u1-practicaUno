@@ -39,10 +39,12 @@ public class Estudiante implements Comparable<Estudiante>{
 
 
    @Override
-   public int compareTo(Estudiante arg0) {
-        System.out.println("Hola");
-    throw new UnsupportedOperationException("Unimplemented method 'compareTo'");
+   public int compareTo(Estudiante e2) {
+        
+    // C1 	Código ascendente. 	Comparable y ordenamiento natural.
+    return this.codigo.compareTo(e2.codigo);
+
    }
 
-
+   
 }

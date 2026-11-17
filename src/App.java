@@ -29,5 +29,5 @@ public class App {
     new Estudiante("E013", "Luis",   19, 7.8, "Electronica")));
  
     }
-    //Hola proyecto XDDDD
+    
 }
