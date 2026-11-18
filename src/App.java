@@ -67,6 +67,7 @@ public class App {
             estudiante.getCodigo().equals("E010")) {
             subListaC4.add(estudiante);
 
+
         }
     }
     subListaC4.sort(Comparators.notaDescNombreAsc); 
