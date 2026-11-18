@@ -42,7 +42,7 @@ public class Estudiante implements Comparable<Estudiante>{
    public int compareTo(Estudiante e2) {
         
     // C1 	Código ascendente. 	Comparable y ordenamiento natural.
-    return this.codigo.compareTo(e2.codigo);
+    return this.codigo.compareTo(e2.getCodigo());
 
    }
 
