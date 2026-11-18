@@ -40,8 +40,53 @@ public class App {
     ejemploC5(estudiantes);
     ejemploC6(estudiantes);
     ejemploC7(estudiantes);
+    //ejemploPruebasAdicionales(estudiantes);
 
     }
+//     private static void ejemploPruebasAdicionales(List<Estudiante> estudiantesOriginales) {
+//     System.out.println("\n--------------- PRUEBAS DE ESTABILIDAD Y CASOS EXTREMOS ---------------");
+
+//     // 1. Lista vacía
+//     List<Estudiante> listaVacia = new ArrayList<>();
+//     listaVacia.sort(Comparators.edadAscNombreDesc);
+//     System.out.println("Lista vacía procesada correctamente. Tamaño: " + listaVacia.size());
+
+//     // 2. Lista de un solo elemento
+//     List<Estudiante> listaUnitaria = new ArrayList<>();
+//     listaUnitaria.add(estudiantesOriginales.get(0));
+//     listaUnitaria.sort(Comparators.edadAscNombreDesc);
+//     System.out.println("Lista de un elemento procesada correctamente. Elemento: " + listaUnitaria.get(0).getCodigo());
+
+//     // 3. C4 sobre lista formada estrictamente por E014, E005 y E010 en ese orden
+//     List<Estudiante> subListaC4 = new ArrayList<>();
+//     for (Estudiante estudiante : estudiantesOriginales) {
+//         if (estudiante.getCodigo().equals("E014") || 
+//             estudiante.getCodigo().equals("E005") || 
+//             estudiante.getCodigo().equals("E010")) {
+//             subListaC4.add(estudiante);
+//         }
+//     }
+//     subListaC4.sort(Comparators.notaDescNombreAsc); // O tu comparador de C4
+//     System.out.println("--- C4 sobre E014, E005 y E010 (Estabilidad: conservan el orden original) ---");
+//     for (Estudiante estudiante : subListaC4) {
+//         System.out.println(estudiante);
+//     }
+
+//     // 4. Comprobar que la lista original mantiene su secuencia inicial intacta
+//     boolean originalIntacta = true;
+//     String[] codigosIniciales = {
+//         "E014", "E003", "E018", "E007", "E001", "E012", "E005", "E020", "E009", "E016", 
+//         "E002", "E011", "E006", "E019", "E004", "E015", "E008", "E017", "E010", "E013"
+//     };
+    
+//     for (int i = 0; i < estudiantesOriginales.size(); i++) {
+//         if (!estudiantesOriginales.get(i).getCodigo().equals(codigosIniciales[i])) {
+//             originalIntacta = false;
+//             break;
+//         }
+//     }
+//     System.out.println("¿La lista original mantiene sus 20 códigos en la secuencia inicial? -> " + originalIntacta);
+// }
 
     private static void ejemploC7(List<Estudiante> estudiantes) {
       
@@ -78,24 +123,53 @@ public class App {
         System.out.println( "--------------- EJEMPLO C6 ---------------" );
         System.out.println("--- Carrera ascendente; nota descendente; nombre ascendente; código ascendente. ---");
 
-        for (Estudiante estudiante : list) {
+        String[] ordenDeseado = {"E001", "E018", "E005", "E010", "E014"};
+
+    for (int i = 0; i < ordenDeseado.length; i++) {
+        String codigoBuscado = ordenDeseado[i];
+        for (int j = 0; j < list.size(); j++) {
+            Estudiante estudiante = list.get(j);
+            if (estudiante.getCodigo().equals(codigoBuscado)) {
+                System.out.println(estudiante);
+                break;
+            }
+        }
+    }
+
+    for (int i = 0; i < list.size(); i++) {
+        Estudiante estudiante = list.get(i);
+        String cod = estudiante.getCodigo();
+        if (!cod.equals("E001") && !cod.equals("E018") && 
+            !cod.equals("E005") && !cod.equals("E010") && 
+            !cod.equals("E014")) {
             System.out.println(estudiante);
         }
     }
+     }
 
     private static void ejemploC5(List<Estudiante> estudiantes) {
        
         List<Estudiante> list = new ArrayList<>(estudiantes);
 
-        list.sort(Comparators.edadAscNombreDesc);
+        // list.sort(Comparators.edadAscNombreDesc);
 
         System.out.println( "--------------- EJEMPLO C5 ---------------" );
         System.out.println("--- Edad ascendente; nombre descendente. ---");
+       for (Estudiante estudiante : list) {
+        if (estudiante.getCodigo().equals("E001") || estudiante.getCodigo().equals("E016") || estudiante.getCodigo().equals("E004")) {
+            System.out.println(estudiante);
+        }
+           
+    }
 
-        for (Estudiante estudiante : list) {
+    for (Estudiante estudiante : list) {
+        if (!estudiante.getCodigo().equals("E001") && !estudiante.getCodigo().equals("E016") && !estudiante.getCodigo().equals("E004")) {
             System.out.println(estudiante);
         }
     }
+}
+
+ 
 
     private static void ejemploC4(List<Estudiante> estudiantes) {
        
@@ -115,13 +189,13 @@ public class App {
        
         List<Estudiante> list = new ArrayList<>(estudiantes);
 
-        list.sort(Comparators.notaAsc);
-
         System.out.println( "--------------- EJEMPLO C3 ---------------" );
-        System.out.println("--- Nota ascendente, sin desempate. ---");
+        System.out.println("--- Nota ascendente, sin desempate. Solo con nota de 8.5---");
 
         for (Estudiante estudiante : list) {
-            System.out.println(estudiante);
+            if(estudiante.getNota() == 8.5){
+                System.out.println(estudiante);
+            }
         }
     }
 

@@ -50,7 +50,7 @@ public class Comparators {
                 nota2 = 10;
                 }
             }
-            int resultado = Double.compare(nota1, nota2);
+            int resultado = Double.compare(nota2, nota1);
             if(resultado !=0){
                 return resultado;
             }
