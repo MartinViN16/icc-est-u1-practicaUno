@@ -64,6 +64,7 @@ public class App {
 //             estudiante.getCodigo().equals("E005") || 
 //             estudiante.getCodigo().equals("E010")) {
 //             subListaC4.add(estudiante);
+
 //         }
 //     }
 //     subListaC4.sort(Comparators.notaDescNombreAsc); // O tu comparador de C4
